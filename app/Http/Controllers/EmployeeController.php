@@ -17,10 +17,10 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
        Employee::create([
-        'FirstName' => $request->FirstName123,
-        'LastName' => $request->LastName123,
-        'Job' => $request->Job123,
-        'Salary' => $request->Salary123,
+        'FirstName' => $request->FirstName,
+        'LastName' => $request->LastName,
+        'Job' => $request->Job,
+        'Salary' => $request->Salary,
        ]);
 
     return redirect('/employees');
