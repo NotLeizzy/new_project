@@ -12,5 +12,5 @@ Route::post('/products123', [ProductController::class, 'store']);
 use App\Http\Controllers\EmployeeController;
 
 Route::get('/employees', [EmployeeController::class, 'index']);
-Route::post('/employees123', [EmployeeController::class, 'store']);
+Route::post('/employeesAdd', [EmployeeController::class, 'store']);
 ?>

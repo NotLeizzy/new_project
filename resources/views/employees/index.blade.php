@@ -12,7 +12,7 @@
 <body>
 <div class="container">
   <h1>Employees</h1>
-  <form action="/employees123" method="POST" class="employee-form">
+  <form action="/employeesAdd" method="POST" class="employee-form">
     @csrf
     
     <div class="form-group">
