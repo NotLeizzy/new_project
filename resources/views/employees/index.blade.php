@@ -48,6 +48,7 @@
         <th>Last Name</th>
         <th>Job</th>
         <th>Salary</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -58,6 +59,15 @@
         <td>{{ $item->LastName }}</td>
         <td>{{ $item->Job }}</td>
         <td>{{ $item->Salary }}</td>
+        <td>
+          <a href="/employeesEdit/{{ $item->id }}/edit" class="btn-edit">Edit</a>
+          <form action="/employees/{{ $item->id }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn-delete">Delete</button>
+          </form>
+        </td>
+
       </tr>
       @endforeach
     </tbody>

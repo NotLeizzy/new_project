@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Products</title>
-
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
 </head>
 
 <body>
-
-
 <div class="container">
   <h1>Products</h1>
 
@@ -43,6 +35,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Actions</th>
       </tr>
     </thead>
 
@@ -52,6 +45,15 @@
         <td>{{ $item->id }}</td>
         <td>{{ $item->name }}</td>
         <td>{{ $item->price }}</td>
+        <td>
+          <a href="/products/{{ $item->id }}/edit" class="btn-edit">Edit</a>
+          <form action="/products/{{ $item->id }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn-delete">Delete</button>
+          </form>
+        </td>
+
       </tr>
       @endforeach
     </tbody>
