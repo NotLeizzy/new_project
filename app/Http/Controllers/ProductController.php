@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 class ProductController extends Controller
 {
     //display
@@ -11,14 +12,20 @@ class ProductController extends Controller
     
     {
         $product = Product::all();
-        return view ('products.index', ['items' => $product]);
+        $categories = Category::all();
+
+        return view('products.index', [
+            'items' => $product,
+            'categories' => $categories,
+        ]);
     }
     //insert
     public function store(Request $request)
     {
        Product::create([
         'name' => $request->name123,
-        'price' => $request->price123
+        'price' => $request->price123,
+        'category_id' => $request->category_id,
        ]);
 
     return redirect('/products');
@@ -27,8 +34,11 @@ class ProductController extends Controller
     public function edit ($id)
     {
         $product = Product::findOrFail($id);
+        $categories = Category::all();
+
         return view ('products.edit',[
-            'item' => $product
+            'item' => $product,
+            'categories' => $categories,
         ]);
     }
 
@@ -38,8 +48,9 @@ class ProductController extends Controller
         
         $product->update([
             'name' => $request->name123,
-            'price' => $request->price123
-        ]) ; 
+            'price' => $request->price123,
+            'category_id' => $request->category_id,
+        ]);
         return redirect('/products');
     }
 

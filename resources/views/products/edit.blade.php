@@ -14,18 +14,28 @@
         @method('PUT')
 
         <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name123" value="{{ $item->name }}" required>
+            <label for="name123">Name:</label>
+            <input type="text" id="name123" name="name123" value="{{ $item->name }}" required>
         </div>
 
         <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="text" id="price" name="price123" value="{{ $item->price }}" required>
+            <label for="price123">Price:</label>
+            <input type="text" id="price123" name="price123" value="{{ $item->price }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="category_id">Category:</label>
+            <select id="category_id" name="category_id" required>
+                <option value="" disabled>Select a category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ $item->category_id == $category->id ? 'selected' : '' }}>{{ $category->category_name }}</option>
+                @endforeach
+            </select>
         </div>
 
         <button type="submit" class="btn-submit">Update</button>
     </form>
-    <br> 
-    <a ref="/products" class="btn-back">Back to Products</a>
+    <br>
+    <a href="/products" class="btn-back">Back to Products</a>
 </body>
 </html>

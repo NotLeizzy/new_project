@@ -21,3 +21,15 @@ Route::put('/employees/{id}', [EmployeeController::class, 'update']);
 Route::delete('/employees/{id}', [EmployeeController::class, 'destroy']);
 
 ?>
+
+<?php
+
+use App\Http\Controllers\CategoryController;
+
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::post('/categoriesAdd', [CategoryController::class, 'store']);
+Route::get('/categories/{id}/edit', [CategoryController::class, 'edit']);
+Route::put('/categories/{id}', [CategoryController::class, 'update']);
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
+
+?>
